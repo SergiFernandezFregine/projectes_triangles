@@ -13,18 +13,12 @@ public class Triangles {
     public static final String ERROR = "ERROR";
     public static Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Determines if 3 segments form a triangle.
-     */
     public boolean isTriangle(double a, double b, double c) {
         return a + b > c && a + c > b && b + c > a;
     }
 
-    /**
-     * Returns the type of triangle.
-     */
     public String typeOfTriangle(double a, double b, double c) {
-        String tot; // Type of triangle
+        String tot; 
         if (!isTriangle(a, b, c)) {
             tot = ERROR;
         } else if (a == b && a == c) {
@@ -37,9 +31,6 @@ public class Triangles {
         return tot;
     }
 
-    /**
-     * Returns the area of a triangle.
-     */
     public double area(double a, double b, double c) {
         double result = 0;
         switch (typeOfTriangle(a, b, c).toUpperCase()) {
@@ -51,7 +42,7 @@ public class Triangles {
                     result = c * Math.sqrt(Math.pow(a, 2) - Math.pow(c, 2) / 4) / 2;
                 else if (a == c)
                     result = b * Math.sqrt(Math.pow(a, 2) - Math.pow(b, 2) / 4) / 2;
-                else // b == c
+                else 
                     result = a * Math.sqrt(Math.pow(b, 2) - Math.pow(a, 2) / 4) / 2;
                 break;
             case SCALENE:
@@ -67,9 +58,6 @@ public class Triangles {
         return result;
     }
 
-    /**
-     * NUEVO MÉTODO: Retorna el perímetro del triángulo si es válido, o -1 si hay error.
-     */
     public double perimetre(double a, double b, double c) {
         if (!isTriangle(a, b, c)) {
             return -1;
